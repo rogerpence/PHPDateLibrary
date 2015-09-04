@@ -23,17 +23,14 @@ class SevenDateTest extends PHPUnit_Framework_TestCase
     {
         $sd = new SevenDateConversion();
 
-        // Careful! A leading zero here means it's an octal value.
         $sevenDate = 5030630;
         $this->assertEquals("2003-06-30", $sd->sevenDateToDate($sevenDate)->format('Y-m-d'));
     }
 
     public function testDateToSevenDate()
     {
-        // Arrange
         $sd = new SevenDateConversion();
 
-        // Assert
         $this->assertEquals(1,$sd->dateToSevenDate());
     }
 }
