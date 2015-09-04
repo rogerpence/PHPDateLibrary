@@ -19,13 +19,17 @@ class SevenDateConversion
         }
 
         $c = substr($sevenDate,0,1);
-        $yyyy = ($c==="1") ? 2000 : 1900;
         $yy = substr($sevenDate, 1, 2);
         $mm = substr($sevenDate, 3, 2);
         $dd = substr($sevenDate, 5, 2);
+        $yyyy = (($c==="1") ? 2000 : 1900) + $yy;
+
+        if (!checkdate($mm, $dd, $yyyy)) {
+            throw new InvalidArgumentException('Date is not valid');
+        }
 
         $date = new DateTime();
-        $date->setDate($yyyy + $yy, $mm, $dd);
+        $date->setDate($yyyy, $mm, $dd);
 
         return $date;
     }

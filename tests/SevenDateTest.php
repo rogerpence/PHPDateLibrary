@@ -19,6 +19,18 @@ class SevenDateTest extends PHPUnit_Framework_TestCase
     /**
      * @expectedException     InvalidArgumentException
      */
+    public function testSevenDateToDateBadJuneDate()
+    {
+        $sd = new SevenDateConversion();
+
+        // Careful! A leading zero here means it's an octal value.
+        $sevenDate = 1030631;
+        $this->assertEquals("2003-06-31", $sd->sevenDateToDate($sevenDate)->format('Y-m-d'));
+    }
+
+    /**
+     * @expectedException     InvalidArgumentException
+     */
     public function testSevenDateToDateWithInvalidDate()
     {
         $sd = new SevenDateConversion();
