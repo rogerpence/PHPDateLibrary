@@ -1,0 +1,19 @@
+.
+├── App
+│   └── Money.php
+├── composer.json
+├── composer.lock
+├── phpunit.xml
+├── tests
+│   └── MoneyTest.php
+└── vendor
+    ├── autoload.php
+    ├── bin
+    │   └── phpunit -> ../phpunit/phpunit/phpunit
+    ├── composer
+    .
+    .
+    .
+    └── symfony
+
+11 directories, 7 files
