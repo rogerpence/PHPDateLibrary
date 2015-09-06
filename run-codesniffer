@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
 vendor/bin/phpcs --standard=PSR2 $1
+
+#vendor/bin/phpcs --standard=PSR2 $1 $2 ...

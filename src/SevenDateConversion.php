@@ -2,8 +2,8 @@
 
 namespace App;
 
-use \DateTime;
-use \InvalidArgumentException;
+use DateTime;
+use InvalidArgumentException;
 
 class SevenDateConversion
 {
@@ -23,10 +23,10 @@ class SevenDateConversion
         $yy = substr($sevenDate, 1, 2);
         $mm = substr($sevenDate, 3, 2);
         $dd = substr($sevenDate, 5, 2);
-        $yyyy = (($c==="1") ? 2000 : 1900) + $yy;
+        $yyyy = (($c==="1") ? 2000 : 1900) + (int)$yy;
 
         if (!checkdate($mm, $dd, $yyyy)) {
-            throw new InvalidArgumentException('Date is not valid');
+            throw new InvalidArgumentException('Seven-digit date not in correct format.');
         }
 
         $date = new DateTime();
@@ -35,7 +35,7 @@ class SevenDateConversion
         return $date;
     }
 
-    public function dateToSevenDate()
+    public function dateToSevenDate(DateTime $date)
     {
         return 1;
     }

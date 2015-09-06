@@ -41,8 +41,11 @@ class SevenDateTest extends PHPUnit_Framework_TestCase
 
     public function testDateToSevenDate()
     {
+        $date = new DateTime();
+        $date->setDate(1959, 6, 2);
+
         $sd = new SevenDateConversion();
 
-        $this->assertEquals(1,$sd->dateToSevenDate());
+        $this->assertEquals(1, $sd->dateToSevenDate($date));
     }
 }
